@@ -1,0 +1,51 @@
+.header {
+    display: flex;                      /** Render all the child of this class in x-axis **/
+    justify-content: space-between;     /** Put space between the childs of this class **/
+    border: 1px solid black;         /** Put border around the header class**/
+}
+
+.logo {
+    width: 100px;
+}
+
+.nav-items > ul {                       /** Apply the following css for ul class of nav-items class **/
+    display: flex;                      /** Render all the child of this class in x-axis **/
+    list-style-type: none;              /** Remove list style like circle, square etc. **/
+    font-size: 24px;                    /** Set font-size for the list items. **/
+}
+
+.nav-items > ul > li {                  /** Apply the following css for li class of ul class of nav-items class **/
+    padding: 10px;
+    margin: 10px;
+}
+
+.restaurant-container {
+    display: flex;                      /** Render all the child of this class in x-axis **/
+    flex-wrap: wrap;                    /** Render rest of the elements in next row if the current row is filled **/
+}
+
+.restaurant-card {
+    width: 200px;
+    height: 350px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.restaurant-card:hover {            /** Apply the following css when people hover on the mentioned class **/
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.search {
+    padding: 10px;
+}
+
+.res-card-img {
+    width: 100%;
+    height: 45%;
+}
+
+.filter-btn {
+    margin: 10px;
+    cursor: pointer;
+}
