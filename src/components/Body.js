@@ -1,18 +1,32 @@
 import RestaurantCard from "./RestaurantCard";
-import restaurants from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-    let [restaurantList, setRestaurantList] = useState(restaurants);
+    let [restaurantList, setRestaurantList] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        const data = await fetch("http://localhost:5001/api/Restaurants");
+        const json = await data.json();
+        setRestaurantList(json);
+    }
+
+    if (restaurantList.length === 0) {
+        return <Shimmer/>
+    }
 
     return (
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
-                    const filteredRestaurantList = restaurants.filter(
+                    restaurantList = restaurantList.filter(
                         res => res.rating > 4.0
                     );
-                    setRestaurantList(filteredRestaurantList);
+                    setRestaurantList(restaurantList);
                 }}>Top Rated Restaurants</button>
             </div>
 
