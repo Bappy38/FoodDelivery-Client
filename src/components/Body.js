@@ -3,15 +3,30 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-    let [restaurantList, setRestaurantList] = useState([]);
+    const [restaurantFilter, setRestaurantFilter] = useState({
+        sortKey: 'Rating',
+        searchText: '',
+        selectTopRestaurant: false,
+        cuisines: [],
+        pageNo:1
+    });
+
+    const [restaurantList, setRestaurantList] = useState([]);
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    const fetchData = async () => {
-        const data = await fetch("http://localhost:5001/api/Restaurants");
-        const json = await data.json();
+    const fetchData = async (latestRestaurantFilter) => {
+        setRestaurantList([]);
+        const response = await fetch("http://localhost:5001/api/Restaurants", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(latestRestaurantFilter ?? restaurantFilter)
+        });
+        const json = await response.json();
         setRestaurantList(json);
     }
 
@@ -19,15 +34,34 @@ const Body = () => {
         return <Shimmer/>
     }
 
+    console.log(restaurantFilter);
+
     return (
         <div className="body">
             <div className="filter">
-                <button className="filter-btn" onClick={() => {
-                    restaurantList = restaurantList.filter(
-                        res => res.rating > 4.0
-                    );
-                    setRestaurantList(restaurantList);
-                }}>Top Rated Restaurants</button>
+                <div className="search">
+                    <input 
+                        type="text"
+                        className="search-box"
+                        value={restaurantFilter.searchText}
+                        onChange={(e) => {
+                            const updatedFilter = { ...restaurantFilter }
+                            updatedFilter.searchText = e.target.value;
+                            setRestaurantFilter(updatedFilter);
+                        }}/>
+                    <button className="search-btn" onClick={() => {
+                        fetchData();    
+                    }}>Search</button>
+                </div>
+
+                <button className="filter-btn" onChange={(e) => {
+                    console.log(e);
+                }} onClick={() => {
+                    const updatedFilter = { ...restaurantFilter }
+                    updatedFilter.selectTopRestaurant = (restaurantFilter.selectTopRestaurant === true)? false : true;
+                    setRestaurantFilter(updatedFilter);
+                    fetchData(updatedFilter);
+                }}>{restaurantFilter.selectTopRestaurant === false? 'Select Top Restaurants' : 'Select All Restaurants'}</button>
             </div>
 
             <div className="restaurant-container">

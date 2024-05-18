@@ -45,6 +45,10 @@
     height: 45%;
 }
 
+.filter {
+    display: flex;
+}
+
 .filter-btn {
     margin: 10px;
     cursor: pointer;
@@ -61,4 +65,15 @@
     padding: 10px;
     margin: 5px;
     background-color: rgb(231, 220, 220);
+}
+
+.loginBtn {
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+}
+
+.search-btn {
+    cursor: pointer;
 }
