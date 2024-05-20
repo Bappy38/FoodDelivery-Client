@@ -77,3 +77,25 @@
 .search-btn {
     cursor: pointer;
 }
+
+.restaurant-navigator {
+    text-decoration: none;
+    color: black;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-card {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 5px;
+}
+
+.menu-item-card-img {
+    width: 100px;
+    height: 80px;
+}
