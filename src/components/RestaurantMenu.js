@@ -14,7 +14,7 @@ const RestaurantMenu = () => {
     }, []);
 
     const fetchMenu = async () => {
-        const response = await fetch(MENU_API + restaurantId);
+        const response = await fetch(process.env.REACT_APP_BASE_API + 'Restaurants/' + restaurantId);
         const json = await response.json();
 
         //set useState hook will re-render the component with updated data

@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { MENU_API } from "../utils/constants";
 
 const Body = () => {
     const [restaurantFilter, setRestaurantFilter] = useState({
@@ -20,7 +21,7 @@ const Body = () => {
 
     const fetchData = async (latestRestaurantFilter) => {
         setRestaurantList([]);
-        const response = await fetch("http://localhost:5001/api/Restaurants", {
+        const response = await fetch(process.env.REACT_APP_BASE_API + 'Restaurants', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
