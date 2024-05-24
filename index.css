@@ -99,3 +99,19 @@
     width: 100px;
     height: 80px;
 }
+
+.team-container {
+    display: flex;
+}
+
+.member-card {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;
+    width: 250px;
+}
+
+.member-card-img {
+    height: 120px;
+    width: 80px;
+}
