@@ -28,37 +28,44 @@ const Body = () => {
     }
 
     return (
-        <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input 
+        <div className="px-6">
+            <div className="flex">
+                <div className="m-2">
+                    <input
                         type="text"
-                        className="search-box"
                         value={searchText}
+                        className="border border-solid border-black p-2 rounded-md w-[250px]"
+                        placeholder="Search for restaurants and food"
                         onChange={(e) => {
                             setSearchText(e.target.value);
                         }}/>
-                    <button className="search-btn" onClick={() => {
+                    <button
+                        className="m-2 p-2 rounded-md font-medium bg-blue-200"
+                        onClick={() => {
                         const updatedFilter = { ...restaurantFilter }
                         updatedFilter.searchText = searchText;
                         setRestaurantFilter(updatedFilter); 
                     }}>Search</button>
                 </div>
 
-                <button className="filter-btn" onChange={(e) => {
-                    console.log(e);
-                }} onClick={() => {
-                    const updatedFilter = { ...restaurantFilter }
-                    updatedFilter.selectTopRestaurant = (restaurantFilter.selectTopRestaurant === true)? false : true;
-                    updatedFilter.searchText = searchText;
-                    setRestaurantFilter(updatedFilter);
-                }}>{restaurantFilter.selectTopRestaurant === false? 'Select Top Restaurants' : 'Select All Restaurants'}</button>
+                <div className="m-2">
+                    <button
+                        className="m-2 p-2 rounded-md font-medium bg-gray-200"
+                        onChange={(e) => {
+                        console.log(e);
+                    }} onClick={() => {
+                        const updatedFilter = { ...restaurantFilter }
+                        updatedFilter.selectTopRestaurant = (restaurantFilter.selectTopRestaurant === true)? false : true;
+                        updatedFilter.searchText = searchText;
+                        setRestaurantFilter(updatedFilter);
+                    }}>{restaurantFilter.selectTopRestaurant === false? 'Select Top Restaurants' : 'Select All Restaurants'}</button>
+                </div>
             </div>
 
-            <div className="restaurant-container">
+            <div className="flex flex-wrap">
                 {
                     restaurantList.map((rest) => (
-                        <Link className="restaurant-navigator" to={"restaurants/" + rest.id} key={rest.id}>
+                        <Link to={"restaurants/" + rest.id} key={rest.id}>
                             <RestaurantCard restaurant={rest}/>
                         </Link>
                     ))

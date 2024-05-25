@@ -20,7 +20,9 @@
   "homepage": "https://github.com/Bappy38/FoodDelivery-Client#readme",
   "devDependencies": {
     "parcel": "^2.12.0",
-    "process": "^0.11.10"
+    "postcss": "^8.4.38",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.3"
   },
   "dependencies": {
     "react": "^18.2.0",
