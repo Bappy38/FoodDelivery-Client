@@ -19,6 +19,11 @@
     margin: 10px;
 }
 
+.nav-item {
+    text-decoration: none;
+    color: black;
+}
+
 .restaurant-container {
     display: flex;                      /** Render all the child of this class in x-axis **/
     flex-wrap: wrap;                    /** Render rest of the elements in next row if the current row is filled **/
