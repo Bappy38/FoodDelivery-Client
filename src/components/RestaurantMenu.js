@@ -12,11 +12,15 @@ const RestaurantMenu = () => {
     }
 
     return (
-        <div className="menu">
-            <h1>{resInfo?.name}</h1>
-            <h2>{resInfo?.rating}</h2>
+        <div className="flex flex-col items-center">
+            
+            <div className="flex flex-col px-2 h-[180px] w-[600px]">
+                <h1 className="text-2xl mt-3 font-medium">{resInfo?.name}</h1>
+                <h2 className="font-bold mt-2">{resInfo?.rating} ⭐</h2>
+                <h1 className="text-xl mt-2 font-bold">Deals for you</h1>
+            </div>
 
-            <ul className="menu-items">
+            <ul className="flex flex-col">
                 {
                     resInfo?.menu?.items.map((item) => (
                         <MenuItem key={item.id} menuItem={item}/>

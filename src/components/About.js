@@ -21,12 +21,10 @@ class About extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="team-container">
-                    {this.state.teamMembers.map(member => (
-                        <TeamMember key={member.id} member={member}/>
-                    ))}
-                </div>
+            <div className="p-5">
+                {this.state.teamMembers.map(member => (
+                    <TeamMember key={member.id} member={member}/>
+                ))}
             </div>
         )
     }
