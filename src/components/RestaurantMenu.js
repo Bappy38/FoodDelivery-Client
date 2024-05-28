@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import MenuItem from "./MenuItem";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import FoodCategory from "./FoodCategory";
 
 const RestaurantMenu = () => {
     const {restaurantId} = useParams();
@@ -12,21 +13,16 @@ const RestaurantMenu = () => {
     }
 
     return (
-        <div className="flex flex-col items-center">
-            
-            <div className="flex flex-col px-2 h-[180px] w-[600px]">
-                <h1 className="text-2xl mt-3 font-medium">{resInfo?.name}</h1>
-                <h2 className="font-bold mt-2">{resInfo?.rating} ⭐</h2>
-                <h1 className="text-xl mt-2 font-bold">Deals for you</h1>
-            </div>
+        <div className="text-center mt-6">
+            <h1 className="font-bold text-2xl">{resInfo.name}</h1>
+            <h1 className="font-bold">{resInfo.rating}/5 ⭐</h1>
+            <h1 className="font-bold">🕒 {resInfo.deliveryTimeInMinutes} minutes</h1>
 
-            <ul className="flex flex-col">
-                {
-                    resInfo?.menu?.items.map((item) => (
-                        <MenuItem key={item.id} menuItem={item}/>
-                    ))
-                }
-            </ul>
+            <div>
+                {resInfo.menu.categories.map((category) => (
+                    <FoodCategory key={category.id} category={category}/>
+                ))}
+            </div>
         </div>
     )
 }
