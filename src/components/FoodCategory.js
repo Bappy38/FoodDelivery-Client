@@ -1,13 +1,12 @@
-import { useState } from "react";
 import MenuItemList from "./MenuItemList";
 
 const FoodCategory = (props) => {
 
     const {title, items} = props.category;
-    const [expandAccordion, setExpandAccordion] = useState(false);
+    const {isActive, expandAccordion, collapseAccordion}  = props;
 
     const onClickAccordionToggler = () => {
-        setExpandAccordion(!expandAccordion);
+        isActive? collapseAccordion() : expandAccordion();
     }
 
     return (
@@ -17,7 +16,7 @@ const FoodCategory = (props) => {
                 <span>⬇️</span>
             </div>
 
-            {expandAccordion && <MenuItemList items={items}/>}
+            {isActive && <MenuItemList items={items}/>}
         </div>
     )
 }
