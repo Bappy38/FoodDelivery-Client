@@ -2,9 +2,9 @@ import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useRestaurants from "../utils/useRestaurants";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import Offline from "./Offline";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import useRestaurants from "../hooks/useRestaurants";
 
 const Body = () => {
     const [searchText, setSearchText] = useState('');

@@ -1,5 +1,14 @@
+import { useDispatch } from "react-redux";
+import { addItem } from '../store/cartSlice';
+
 const MenuItem = (props) => {
     const {name, price, description, imageUrl} = props.item;
+
+    const dispatch = useDispatch();
+
+    const handleAddItemToCart = () => {
+        dispatch(addItem(props.item));
+    }
 
     return (
         <div className="flex justify-between border-b-2 py-2">
@@ -11,6 +20,7 @@ const MenuItem = (props) => {
             </div>
             <div className="w-3/12 h-full relative">
                 <button 
+                    onClick={handleAddItemToCart}
                     className="
                         absolute
                         bg-slate-600

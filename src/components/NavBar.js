@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Brand_Logo from '../assets/Brand_Logo.png';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
     const [loginBtnName, setLoginBtnName] = useState('Login');
+
+    const cartItems = useSelector((store) => (store.cart.items));
 
     return (
         <div className='flex h-[100px] bg-gray-200 justify-between'>
@@ -25,7 +28,12 @@ const NavBar = () => {
                     <li className='mx-2 text-lg hover:bg-gray-300 rounded-lg p-2'>
                         <Link to="/contact">Contact Us</Link>
                     </li>
-                    <li className='mx-2 text-lg hover:bg-gray-300 rounded-lg p-2'>Cart</li>
+                    <li className='mx-2 text-lg hover:bg-gray-300 rounded-lg p-2 transition-colors'>
+                        <Link to="/cart">
+                            <span className='text-2xl'>🛒</span>
+                            <span>{cartItems.length}</span>
+                        </Link>
+                    </li>
                     <li className='mx-2 text-lg hover:bg-gray-300 rounded-lg p-2'>
                         <button onClick={
                         () => {
