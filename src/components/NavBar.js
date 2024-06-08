@@ -7,6 +7,9 @@ const NavBar = () => {
     const [loginBtnName, setLoginBtnName] = useState('Login');
 
     const cartItems = useSelector((store) => (store.cart.items));
+    const itemCount = cartItems.reduce((count, item) => {
+        return count + item.quantity;
+    }, 0);
 
     return (
         <div className='flex h-[100px] bg-gray-200 justify-between'>
@@ -31,7 +34,7 @@ const NavBar = () => {
                     <li className='mx-2 text-lg hover:bg-gray-300 rounded-lg p-2 transition-colors'>
                         <Link to="/cart">
                             <span className='text-2xl'>🛒</span>
-                            <span>{cartItems.length}</span>
+                            <span>{itemCount}</span>
                         </Link>
                     </li>
                     <li className='mx-2 text-lg hover:bg-gray-300 rounded-lg p-2'>

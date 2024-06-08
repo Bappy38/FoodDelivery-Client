@@ -1,14 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from '../store/cartSlice';
+import { addItem, clearCart, removeItem } from '../store/cartSlice';
 
 const Cart = () => {
 
     const cartItems = useSelector((store) => (store.cart.items));
 
+    const itemTotal = cartItems.reduce((priceCount, item) => {
+        return priceCount + (item.price * item.quantity);
+    }, 0);
+    const vat = itemTotal * 0.05;
+    const deliveryFee = 40;
+    const platformFee = 10;
+
     const dispatch = useDispatch();
 
     const handleClearCart = () => {
         dispatch(clearCart());
+    }
+
+    const handleDecreaseQuantity = (item) => {
+        dispatch(removeItem(item));
+    }
+
+    const handleIncreaseQuantity = (item) => {
+        dispatch(addItem(item));
     }
 
     if (cartItems.length === 0) {
@@ -45,7 +60,23 @@ const Cart = () => {
                         </div>
 
                         <div className="w-3/12">
-                            <img className="rounded-md" src={item.imageUrl} alt={item.name}/>
+                        <div className="relative inline-block">
+                            <img className="rounded-md" src={item.imageUrl} alt={item.name} />
+                            <div className="absolute bottom-0 bg-gray-300 left-1/2 transform -translate-x-1/2 inline-flex items-center border border-1 rounded-full">
+                                <button 
+                                    onClick={() => handleIncreaseQuantity(item)}
+                                    className="rounded-md w-8 h-8 font-bold flex items-center justify-center hover:bg-blue-50 hover:rounded-full">
+                                    +
+                                </button>
+                                <span className="mx-2 text-center">{item.quantity}</span>
+                                <button
+                                    onClick={() => handleDecreaseQuantity(item)}
+                                    className="rounded-md w-8 h-8 font-bold flex items-center justify-center hover:bg-blue-50 hover:rounded-full">
+                                    -
+                                </button>
+                            </div>
+                        </div>
+
                         </div>
 
                     </div>
@@ -58,23 +89,23 @@ const Cart = () => {
                 </div>
                 <div class="flex justify-between border-b py-2">
                     <span>Item Total</span>
-                    <span>1200</span>
+                    <span>{itemTotal.toFixed(2)}</span>
                 </div>
                 <div class="flex justify-between border-b py-2">
                     <span>Delivery Fee</span>
-                    <span>40</span>
+                    <span>{deliveryFee.toFixed(2)}</span>
                 </div>
                 <div class="flex justify-between border-b py-2">
                     <span>Platform Fee</span>
-                    <span>15</span>
+                    <span>{platformFee.toFixed(2)}</span>
                 </div>
                 <div class="flex justify-between border-b-2 py-2">
                     <span>VAT</span>
-                    <span>15</span>
+                    <span>{vat.toFixed(2)}</span>
                 </div>
                 <div class="flex justify-between py-2">
                     <span class="font-semibold">Total</span>
-                    <span class="font-semibold">1500</span>
+                    <span class="font-semibold">{(itemTotal + deliveryFee + platformFee + vat).toFixed(2)}</span>
                 </div>
             </div>
 
