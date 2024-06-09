@@ -83,29 +83,29 @@ const Cart = () => {
                 ))}
             </div>
 
-            <div class="mx-auto mt-8 p-4 h-auto w-3/12 bg-white shadow-md rounded-lg">
-                <div class="text-center py-2 mb-2">
-                    <span class="font-semibold">Bill Details</span>
+            <div className="mx-auto mt-8 p-4 h-auto w-3/12 bg-white shadow-md rounded-lg">
+                <div className="text-center py-2 mb-2">
+                    <span className="font-semibold">Bill Details</span>
                 </div>
-                <div class="flex justify-between border-b py-2">
+                <div className="flex justify-between border-b py-2">
                     <span>Item Total</span>
                     <span>{itemTotal.toFixed(2)}</span>
                 </div>
-                <div class="flex justify-between border-b py-2">
+                <div className="flex justify-between border-b py-2">
                     <span>Delivery Fee</span>
                     <span>{deliveryFee.toFixed(2)}</span>
                 </div>
-                <div class="flex justify-between border-b py-2">
+                <div className="flex justify-between border-b py-2">
                     <span>Platform Fee</span>
                     <span>{platformFee.toFixed(2)}</span>
                 </div>
-                <div class="flex justify-between border-b-2 py-2">
+                <div className="flex justify-between border-b-2 py-2">
                     <span>VAT</span>
                     <span>{vat.toFixed(2)}</span>
                 </div>
-                <div class="flex justify-between py-2">
-                    <span class="font-semibold">Total</span>
-                    <span class="font-semibold">{(itemTotal + deliveryFee + platformFee + vat).toFixed(2)}</span>
+                <div className="flex justify-between py-2">
+                    <span className="font-semibold">Total</span>
+                    <span className="font-semibold">{(itemTotal + deliveryFee + platformFee + vat).toFixed(2)}</span>
                 </div>
             </div>
 
