@@ -11,7 +11,7 @@ const MenuItem = (props) => {
     }
 
     return (
-        <div className="flex justify-between border-b-2 py-2">
+        <div data-testid="fooditem" className="flex justify-between border-b-2 py-2">
             <div className="text-left w-9/12">
                 <div className="mt-2 text-lg">
                     <span>{name} - BDT {price}</span>

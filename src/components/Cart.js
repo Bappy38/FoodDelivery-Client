@@ -41,14 +41,10 @@ const Cart = () => {
         <div className="flex py-4 px-12">
             <div className="text-center w-6/12">
 
-                {/* <button className="bg-slate-400 p-2 rounded-md" onClick={
-                    handleClearCart
-                }>Clear Cart</button> */}
-
                 <h1 className="text-2xl">Your Items</h1>
 
                 {cartItems.map((item) => (
-                    <div key={item.id} className="p-2 m-2 border-b-2 text-left flex justify-between">
+                    <div data-testid="cartitem" key={item.id} className="p-2 m-2 border-b-2 text-left flex justify-between">
 
                         <div className="w-9/12">
                             <div className="py-2">
@@ -64,12 +60,14 @@ const Cart = () => {
                             <img className="rounded-md" src={item.imageUrl} alt={item.name} />
                             <div className="absolute bottom-0 bg-gray-300 left-1/2 transform -translate-x-1/2 inline-flex items-center border border-1 rounded-full">
                                 <button 
+                                    data-testid="incQuantity"
                                     onClick={() => handleIncreaseQuantity(item)}
                                     className="rounded-md w-8 h-8 font-bold flex items-center justify-center hover:bg-blue-50 hover:rounded-full">
                                     +
                                 </button>
                                 <span className="mx-2 text-center">{item.quantity}</span>
                                 <button
+                                    data-testid="decQuantity"
                                     onClick={() => handleDecreaseQuantity(item)}
                                     className="rounded-md w-8 h-8 font-bold flex items-center justify-center hover:bg-blue-50 hover:rounded-full">
                                     -

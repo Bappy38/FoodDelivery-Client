@@ -1,0 +1,54 @@
+{
+    "id": 1,
+    "name": "Taste of Tuscany",
+    "cuisine": "Italian, Mediterranean",
+    "rating": 4.7,
+    "deliveryTimeInMinutes": 45,
+    "imageUrl": "https://img.freepik.com/free-photo/delicious-burger-with-many-ingredients-isolated-white-background-tasty-cheeseburger-splash-sauce_90220-1266.jpg?t=st=1715625020~exp=1715628620~hmac=ee0ee3d2f13079fdde6fceb6505a1c87055ea22bd4f475c0d1b08be27c7556fd&w=740",
+    "address": null,
+    "menu": {
+        "id": 1,
+        "restaurantId": 1,
+        "categories": [
+            {
+                "id": 1,
+                "title": "Appetizers",
+                "items": [
+                    {
+                        "id": 1,
+                        "name": "Spring Rolls",
+                        "description": "Crispy spring rolls stuffed with vegetables.",
+                        "price": 5.99,
+                        "imageUrl": "https://img.freepik.com/free-photo/margherita-pizza-with-basil-top-view_2829-10397.jpg?w=740"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Main Courses",
+                "items": [
+                    {
+                        "id": 2,
+                        "name": "Grilled Salmon",
+                        "description": "Freshly grilled salmon with a side of vegetables.",
+                        "price": 15.99,
+                        "imageUrl": "https://img.freepik.com/free-photo/spaghetti-carbonara-white-plate_2829-15834.jpg?w=740"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Desserts",
+                "items": [
+                    {
+                        "id": 3,
+                        "name": "Cheesecake",
+                        "description": "Creamy cheesecake with a graham cracker crust.",
+                        "price": 6.99,
+                        "imageUrl": "https://img.freepik.com/free-photo/tiramisu-italian-dessert_2829-12651.jpg?w=740"
+                    }
+                ]
+            }
+        ]
+    }
+}
