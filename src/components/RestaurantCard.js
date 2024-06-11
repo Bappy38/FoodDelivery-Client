@@ -6,7 +6,7 @@ const RestaurantCard = (props) => {
         <div className="p-2 m-2 w-[250px] h-[350px] rounded-md bg-gray-100 hover:bg-gray-200">
             <img
                 className="p-2 w-full h-40 rounded-md"
-                alt="restaurant-logo"
+                alt="restaurant-banner"
                 src={imageUrl}
                 />
             <h3 className="p-2 font-bold">{name}</h3>

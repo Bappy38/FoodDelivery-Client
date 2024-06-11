@@ -1,0 +1,9 @@
+{
+    "id": 1,
+    "name": "Taste of Tuscany",
+    "cuisine": "Italian, Mediterranean",
+    "rating": 4.7,
+    "deliveryTimeInMinutes": 45,
+    "imageUrl": "https://img.freepik.com/free-photo/delicious-burger-with-many-ingredients-isolated-white-background-tasty-cheeseburger-splash-sauce_90220-1266.jpg?t=st=1715625020~exp=1715628620~hmac=ee0ee3d2f13079fdde6fceb6505a1c87055ea22bd4f475c0d1b08be27c7556fd&w=740",
+    "IsPromoted": true
+  }

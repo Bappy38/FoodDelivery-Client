@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import MOCK_DATA from '../../mocks/restaurantMenuMock.json'
+import MOCK_DATA from '../../mocks/mockRestaurantMenu.json'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import RestaurantMenu from '../../components/RestaurantMenu';
