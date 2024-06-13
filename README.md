@@ -13,6 +13,9 @@
 - How to write custom hook
 - Lifting State Up
 - React Context
+- Tests:
+    - Writing Unit Test
+    - Writing Integration Test
 
 ## What other things I have explored doing this project?
 
