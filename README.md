@@ -7,7 +7,7 @@
 - React Props
 - Hooks: 
     - React Hooks: `useState`, `useEffect`
-    - React Router DOM Hooks: `useParams`
+    - React Router DOM Hooks: `useParams`, `useNavigate`
     - React Redux Hooks: `useSelector`, `useDispatch`
 
 - How to write custom hook
